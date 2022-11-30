@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <stroke
+        android:width="1sp"
+        android:color = "@color/colorQuantum" />
+    <padding
+
+        android:bottom="5sp"
+        android:left="5sp"
+        android:right="5sp"
+        android:top="5sp"/>
+    <corners android:radius="10sp"/>
+    <gradient
+        android:startColor = "#E91E63"
+        android:endColor="#E91E63"
+        android:angle="0"
+        />
+
+
+</shape>

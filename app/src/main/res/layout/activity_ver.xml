@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondogris_solo"
+    android:orientation="vertical"
+    tools:context=".VerActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/qtm3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="9dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/colorQuantum"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <TableLayout
+        android:id="@+id/tablaConteo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qtm3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="30dp">
+
+        <TableRow
+            android:id="@+id/columnaConteo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/conteoB"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:background="@drawable/custom_button"
+                android:fontFamily="@font/roboto"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:hint="conteo"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/roboto"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Número de Conteo"
+                android:textColor="@color/colorQuantum"
+                android:textSize="17dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/viewNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tablaConteo"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="CÓDIGO"
+        android:textColor="@color/colorQuantum" />
+
+    <EditText
+        android:id="@+id/ItemInsertado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewNombre"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde4"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorQuantum" />
+
+    <TextView
+        android:id="@+id/viewNombre2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ItemInsertado"
+        android:layout_marginTop="19dp"
+        android:gravity="center"
+        android:text="IDENTIFICACIÓN"
+        android:textColor="@color/colorQuantum" />
+
+    <EditText
+        android:id="@+id/SerieInsertada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewNombre2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde4"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorQuantum" />
+
+    <LinearLayout
+        android:id="@+id/botones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SerieInsertada"
+        android:layout_marginTop="139dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGuarda"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/custom_button3"
+            android:onClick="agregarItem"
+            android:text="Colectar" />
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/ic_borde2"
+            android:onClick="Salir"
+            android:text="VOLVER"
+            android:textColor="@color/colorQuantumLila" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FabEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/botones"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="163dp"
+        android:clickable="true"
+        android:visibility="visible"
+        app:backgroundTint="#D4145A"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <EditText
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FabEliminar"
+        android:layout_marginTop="-171dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/idMostrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SerieInsertada"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#7A7474"
+        android:visibility="invisible" />
+
+</RelativeLayout>

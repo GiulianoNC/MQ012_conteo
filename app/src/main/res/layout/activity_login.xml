@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondogris_solo"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/mon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/prueba2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="invisible" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/colorcombinado" />
+
+
+    <TextView
+        android:id="@+id/QTMtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/dir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Usuario"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="18dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="USUARIO"
+        android:textColor="@color/colorQuantum"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/informeConexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="Conexión"
+        android:textColor="#100F0F"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/Usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_above="@id/contraseñaTexto"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/ic_borde"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="#252323"
+        android:textColorHint="#777171"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/contraseñaTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/con"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="CONTRASEÑA"
+        android:textColor="@color/colorQuantum"
+        android:textSize="15sp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="145dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:onClick="ingresar"
+        android:text="iNGRESAR"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/con"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="65dp"
+        android:gravity="center"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contras"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_borde"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:textColor="#191717"
+            android:textColorHint="#706B6B"
+            android:textCursorDrawable="@color/divider"
+            android:textSize="13sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:fontFamily="@font/roboto"
+        android:text="Versión 2.0"
+        android:textColor="@color/colorQuantum"
+        android:textSize="10sp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="130dp"
+        android:layout_height="124dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="17dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/q_blanca" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        app:srcCompat="@drawable/lg_quantum_cabezal" />
+
+
+</RelativeLayout>

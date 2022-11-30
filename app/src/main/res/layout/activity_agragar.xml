@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondogris_solo"
+    tools:context=".AgregarActivity">
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/serieIn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde2"
+        android:onClick="Salir"
+        android:text="VOLVER"
+        android:textColor="@color/colorQuantumLila" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/qtm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="9dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/colorQuantum"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <TableLayout
+        android:id="@+id/tablaConteo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qtm4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="30dp">
+
+        <TableRow
+            android:id="@+id/columnaConteo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/conteoC"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:background="@drawable/custom_button"
+                android:fontFamily="@font/roboto"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:hint="conteo"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/roboto"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Número de Conteo"
+                android:textColor="@color/colorQuantum"
+                android:textSize="17dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/viewNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qtm4"
+        android:layout_marginTop="42dp"
+        android:gravity="center"
+        android:text="CÓDIGO"
+        android:textColor="@color/colorQuantum" />
+
+    <EditText
+        android:id="@+id/itenIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewNombre"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde4"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorQuantum" />
+
+    <TextView
+        android:id="@+id/viewNombre2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itenIn"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:text="IDENTIFICACIÓN"
+        android:textColor="@color/colorQuantum" />
+
+    <EditText
+        android:id="@+id/serieIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewNombre2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde4"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorQuantum" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/serieIn"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="73dp"
+        android:background="@drawable/custom_button"
+        android:onClick="agregar"
+        android:text="Colectar" />
+
+    <TextView
+        android:id="@+id/idMos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/serieIn"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="23dp"
+        android:textColor="#918A8A" />
+
+</RelativeLayout>

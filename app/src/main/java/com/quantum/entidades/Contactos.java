@@ -6,6 +6,8 @@ public class Contactos {
     private String nombre;
     private String Item;
     private String Numero_Serie;
+    private String Ubicacion;
+    private String cantidad;
     private String resultado;
 
     private boolean isSelected = false;
@@ -20,6 +22,15 @@ public class Contactos {
 
     public String getItem() {
         return Item;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public String setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+        return cantidad;
     }
 
     public String setItem(String item) {
@@ -51,6 +62,13 @@ public class Contactos {
     public String setNumero_Serie(String numero_Serie) {
         Numero_Serie = numero_Serie;
         return numero_Serie;
+    }
+
+    public String getUbicacion() {return Ubicacion;}
+
+    public String setUbicacion(String ubicacion) {
+        this.Ubicacion = ubicacion;
+        return  ubicacion;
     }
 
     public String getResultado() {

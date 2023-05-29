@@ -47,20 +47,21 @@ public class ListaContactosAdapter  extends RecyclerView.Adapter  <ListaContacto
         final Contactos contactos = listaContactos.get(position);
         holder.viewItem.setText(listaContactos.get(position).getItem());
         holder.viewNroSerie.setText(listaContactos.get(position).getNumero_Serie());
-
+        holder.viewUbicacion.setText(listaContactos.get(position).getUbicacion());
+        holder.ViewCantidad.setText(listaContactos.get(position).getCantidad());
         holder.ViewResultado.setText(listaContactos.get(position).getResultado());
 
         String resultado = listaContactos.get(position).getResultado();
-        if(resultado.equals("error")){
+        if(resultado.equals(" Error     ")){
             holder.ViewResultado.setBackgroundColor(contactos.isSelected() ? Color.RED : Color.RED);
             holder.ViewResultado.setTextColor(contactos.isSelected() ? Color.WHITE : Color.WHITE);
 
-        }else if (resultado.equals("procesado")){
+        }else if (resultado.equals(" Procesado ")){
             holder.ViewResultado.setBackgroundColor(contactos.isSelected() ? Color.GREEN : Color.BLUE);
             holder.ViewResultado.setTextColor(contactos.isSelected() ? Color.WHITE : Color.WHITE);
 
         }else{
-            holder.ViewResultado.setBackgroundColor(contactos.isSelected() ? Color.WHITE : Color.WHITE);
+            holder.ViewResultado.setBackgroundColor(contactos.isSelected() ? Color.GRAY : Color.GRAY);
         }
 
         holder.ids.setText(listaContactos.get(position).getId() + "");
@@ -88,7 +89,7 @@ public class ListaContactosAdapter  extends RecyclerView.Adapter  <ListaContacto
     //identificar los elementos
     public class ContactoViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView viewItem, viewNroSerie,ViewResultado,ids;
+        public TextView viewItem, viewNroSerie,ViewResultado,ViewCantidad,ids,viewUbicacion;
         private View view;
 
 
@@ -96,7 +97,10 @@ public class ListaContactosAdapter  extends RecyclerView.Adapter  <ListaContacto
             super(itemView);
             viewItem = itemView.findViewById(R.id.viewItem);
             viewNroSerie = itemView.findViewById(R.id.viewNroSerie);
+            viewUbicacion = itemView.findViewById(R.id.viewUbicacion);
             ViewResultado = itemView.findViewById(R.id.viewResultado);
+            ViewCantidad = itemView.findViewById(R.id.viewCantida);
+
             ids = itemView.findViewById(R.id.IDtext);
             this.view = itemView;
 

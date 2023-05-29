@@ -28,9 +28,20 @@
     <style name="SplashTheme" parent="Theme.MQ012">
 
         <item name="android:windowBackground">@drawable/colorcombinado</item>
+        <item name="android:statusBarColor">@color/colorQuantum</item>
+        <item name="colorPrimaryDark">@color/colorQuantum</item>
+        <item name="android:background">@drawable/colorcombinado</item>
 
     </style>
 
     <style name="ProgressBarStyle"> <item name="colorAccent">@color/colorPrueba</item> </style>
 
+    <!--Fondo para dia/noche -->
+    <style name="backgroundImg"><item name="android:background">@drawable/fondogris_solo</item></style>
+    //Q del background Noche/Dia
+    <style name="srcQuantumBackground"><item name="android:background">@drawable/q_blanca</item></style>
+    //Logo Quantum Noche/Dia
+    <style name="srcQuantumLogo"><item name="android:background">@drawable/lg_quantum_cabezal</item></style>
+    //Flecha de actualizar a Rosa
+    <style name="flechaRosa"></style>
 </resources>

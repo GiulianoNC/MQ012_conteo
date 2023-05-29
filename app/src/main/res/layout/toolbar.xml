@@ -14,8 +14,43 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="50dp"
-            android:layout_marginStart="110dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/quantumconsulting" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/QTMtitulo9"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="QTM - CONTEO"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/QTMtitulo11"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:text="CICLICO"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="16sp"
+                android:visibility="visible" />
+        </LinearLayout>
 
     </LinearLayout>
 

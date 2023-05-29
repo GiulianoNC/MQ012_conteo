@@ -13,10 +13,13 @@ public class DbHelper extends SQLiteOpenHelper {
     public  static  final String TABLE_CONTEO= "t_conteo2";
 
 
+
+    //creacion del nombre y version
     public DbHelper(@Nullable Context context) {
         super(context, DATABASE_NOMBRE, null, DATABASE_VERSION);
     }
 
+    //armado de la base de datos
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
@@ -25,10 +28,12 @@ public class DbHelper extends SQLiteOpenHelper {
                         "nombre TEXT  NOT NULL," +
                         "item TEXT  NOT NULL," +
                 "Numero_Serie TEXT NOT NULL," +
+                "ubicacion TEXT  NOT NULL," +
+                "cantidad TEXT NOT NULL," +
                 "resultado TEXT NOT NULL)");
-
     }
 
+    // se manda
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 

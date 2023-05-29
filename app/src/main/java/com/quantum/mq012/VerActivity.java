@@ -1,9 +1,7 @@
 package com.quantum.mq012;
 
-import static com.quantum.mq012.Configuracion.direc;
+import static com.quantum.db.DbContactos.totalGoblal;
 import static com.quantum.mq012.Configuracion.nroConteoGoblal;
-import static com.quantum.mq012.LoginActivity.contraseñaGlobal;
-import static com.quantum.mq012.LoginActivity.usuarioGlobal;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,23 +18,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.quantum.conectividad.Conexion;
 import com.quantum.db.DbContactos;
 import com.quantum.entidades.Contactos;
-import com.quantum.parseo.Cuerpo;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 //en esta clase es para poder ver,editar,eliminar  lo seleccionado
 public class VerActivity extends AppCompatActivity {
 
-    TextView viewItem,viewNroSerie,viewResultado,qtm,titulo,codigo,codigo2,idShow;
-    Button btnGuarda;
-    FloatingActionButton fabEliminar;
+    TextView viewItem,viewNroSerie,viewResultado,qtm,titulo,codigo,codigo2,idShow,viewCantidad,fabEliminar;
+    // Button btnGuarda;
     boolean correcto = false;
     Contactos contacto;
     int  id = 0;
@@ -49,9 +38,11 @@ public class VerActivity extends AppCompatActivity {
         viewItem = findViewById(R.id.ItemInsertado);
         viewNroSerie = findViewById(R.id.SerieInsertada);
         idShow = findViewById(R.id.idMostrar);
+        viewCantidad = findViewById(R.id.cantidadInsertada);
 
 
-        btnGuarda = findViewById(R.id.btnGuarda);
+
+        //btnGuarda = findViewById(R.id.btnGuarda);
         fabEliminar = findViewById(R.id.FabEliminar);
         viewResultado = findViewById(R.id.resultado);
         titulo = findViewById(R.id.conteoB);
@@ -89,6 +80,7 @@ public class VerActivity extends AppCompatActivity {
         if(contacto != null){
             viewItem.setText(contacto.getItem());
             viewNroSerie.setText(contacto.getNumero_Serie());
+            viewCantidad.setText(contacto.getCantidad());
             viewResultado.setText(contacto.getResultado());
 
 
@@ -96,6 +88,8 @@ public class VerActivity extends AppCompatActivity {
             viewItem.setInputType(InputType.TYPE_NULL);
             viewNroSerie.setInputType(InputType.TYPE_NULL);
             viewResultado.setInputType(InputType.TYPE_NULL);
+            viewCantidad.setInputType(InputType.TYPE_NULL);
+
 
 
         }else{
@@ -112,6 +106,7 @@ public class VerActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if(dbContactos.eliminarContacto(id)){
+                                    totalGoblal = totalGoblal - 1;
                                     lista();
                                 }
                             }
@@ -125,13 +120,15 @@ public class VerActivity extends AppCompatActivity {
             }
         });
 
-        //guardar registro
+      /*  //guardar registro
         btnGuarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!viewItem.getText().toString().equals("") &&!viewNroSerie.getText().toString().equals("") ){
-                    viewResultado.setText("procesado");
-                    correcto =    dbContactos.editarContacto(id, viewItem.getText().toString(), viewNroSerie.getText().toString(), viewResultado.getText().toString());
+                    if(viewResultado.length() == 0){
+                        viewResultado.setText("procesado");
+                    }
+                    correcto =    dbContactos.editarContacto(id, viewItem.getText().toString(), viewNroSerie.getText().toString(), viewCantidad.getText().toString(),viewResultado.getText().toString());
                     Toast.makeText(VerActivity.this,"REGISTRO GUARDADO", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(VerActivity.this, SegundoActivity.class);
 
@@ -143,7 +140,7 @@ public class VerActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        }); */
 
     }
 

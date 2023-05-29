@@ -2,10 +2,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/backgroundImg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondogris_solo"
     tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        style="@style/srcQuantumLogo"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp" />
+
+    <Switch
+        android:id="@+id/btnToggleDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto"
+        android:text="Dia/Noche"
+        android:textColor="@color/colorQuantum" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        style="@style/srcQuantumBackground"
+        android:layout_width="112dp"
+        android:layout_height="124dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="17dp"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/mon"
@@ -50,10 +83,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="200dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
         android:text="USUARIO"
@@ -89,7 +122,7 @@
         android:fontFamily="@font/roboto"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:textColor="#252323"
+        android:textColor="@color/textColor"
         android:textColorHint="#777171"
         android:textSize="13sp" />
 
@@ -119,7 +152,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="145dp"
+        android:layout_marginBottom="45dp"
         android:background="@drawable/custom_button"
         android:fontFamily="@font/roboto"
         android:gravity="center"
@@ -130,7 +163,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/con"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/button2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -138,7 +171,8 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="65dp"
         android:gravity="center"
-        app:endIconMode="password_toggle">
+        app:passwordToggleDrawable="@drawable/custom_password_eye"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/contras"
@@ -147,7 +181,8 @@
             android:background="@drawable/ic_borde"
             android:gravity="center"
             android:inputType="textPassword"
-            android:textColor="#191717"
+            android:paddingStart="40dp"
+            android:textColor="@color/textColor"
             android:textColorHint="#706B6B"
             android:textCursorDrawable="@color/divider"
             android:textSize="13sp" />
@@ -165,27 +200,6 @@
         android:textColor="@color/colorQuantum"
         android:textSize="10sp"
         android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="130dp"
-        android:layout_height="124dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="17dp"
-        android:visibility="visible"
-        app:srcCompat="@drawable/q_blanca" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        app:srcCompat="@drawable/lg_quantum_cabezal" />
 
 
 </RelativeLayout>

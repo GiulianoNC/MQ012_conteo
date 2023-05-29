@@ -2,11 +2,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/backgroundImg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondogris_solo"
     android:orientation="vertical"
     tools:context=".VerActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        style="@style/srcQuantumBackground"
+        android:layout_width="112dp"
+        android:layout_height="124dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="17dp"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/ItemInsertado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewNombre"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde4"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="@color/textColor" />
 
     <include
         android:id="@+id/toolbar"
@@ -33,17 +57,17 @@
         android:textColor="@color/colorQuantum"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <TableLayout
         android:id="@+id/tablaConteo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/qtm3"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp">
 
         <TableRow
@@ -83,33 +107,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tablaConteo"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:text="CÓDIGO"
-        android:textColor="@color/colorQuantum" />
-
-    <EditText
-        android:id="@+id/ItemInsertado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/viewNombre"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/ic_borde4"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorQuantum" />
+        android:textColor="@color/colorQuantum"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/viewNombre2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ItemInsertado"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:text="IDENTIFICACIÓN"
-        android:textColor="@color/colorQuantum" />
+        android:textColor="@color/colorQuantum"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/viewNombre3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SerieInsertada"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="CANTIDAD"
+        android:textColor="@color/colorQuantum"
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/SerieInsertada"
@@ -117,65 +141,57 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/viewNombre2"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/ic_borde4"
+        android:gravity="center"
         android:inputType="textPersonName"
-        android:textColor="@color/colorQuantum" />
+        android:textColor="@color/textColor" />
 
-    <LinearLayout
-        android:id="@+id/botones"
+    <EditText
+        android:id="@+id/cantidadInsertada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/SerieInsertada"
-        android:layout_marginTop="139dp"
-        android:orientation="horizontal">
+        android:layout_below="@+id/viewNombre3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_borde4"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="@color/textColor" />
 
-        <Button
-            android:id="@+id/btnGuarda"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/custom_button3"
-            android:onClick="agregarItem"
-            android:text="Colectar" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/ic_borde2"
-            android:onClick="Salir"
-            android:text="VOLVER"
-            android:textColor="@color/colorQuantumLila" />
-
-    </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/FabEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/botones"
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="163dp"
-        android:clickable="true"
-        android:visibility="visible"
-        app:backgroundTint="#D4145A"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/ic_borde2"
+        android:onClick="Salir"
+        android:text="VOLVER"
+        android:textColor="@color/colorQuantumLila" />
+
+    <Button
+        android:id="@+id/FabEliminar"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/custom_button3"
+        android:onClick="Salir"
+        android:text="ELIMINAR" />
 
     <EditText
         android:id="@+id/resultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/FabEliminar"
-        android:layout_marginTop="-171dp"
+        android:layout_marginTop="-93dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/black"
@@ -190,6 +206,16 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
         android:textColor="#7A7474"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btnGuarda"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/custom_button3"
+        android:onClick="agregarItem"
+        android:text="Colectar"
         android:visibility="invisible" />
 
 </RelativeLayout>

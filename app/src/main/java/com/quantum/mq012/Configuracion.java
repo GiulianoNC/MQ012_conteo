@@ -10,20 +10,36 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.quantum.conectividad.Conexion;
 import com.quantum.db.DbHelper;
+import com.quantum.parseo.Cuerpo;
 
 public class Configuracion extends AppCompatActivity {
-    private TextView direccion,qtm, conteo;
 
+    private TextView direccion,qtm, conteo, ubi, manSerie, rest, restSel,baseD,CBD;
     public static String direc = null;
     public static String  nroConteoGoblal = null;
+    public static String  ubicacionGoblal = null;
+    public static String  serieGoblal = null;
+    public static boolean  checkGlobal = false;
+    public static boolean  checkGlobalLector = false;
+
+    public static String restGlobal = "";
+
+    private CheckBox ckbxCodItem, ckbxLector;
+
+    private static  boolean  CDBnormal= true;
 
     FloatingActionButton btnBaseDatos;
 
@@ -35,15 +51,50 @@ public class Configuracion extends AppCompatActivity {
         direccion= findViewById(R.id.direccion);
         conteo= findViewById(R.id.nroConteo);
 
-        btnBaseDatos= findViewById(R.id.btnBaseDatos);
+        ubi= findViewById(R.id.ubicacion);
+        manSerie= findViewById(R.id.serie);
+        rest= findViewById(R.id.servicioRest);
+        restSel= findViewById(R.id.restSeleccionado);
 
+        ckbxCodItem = findViewById(R.id.checkBoxCodItem);
+        ckbxLector = findViewById(R.id.checkBoxLector);
+        btnBaseDatos= findViewById(R.id.btnBaseDatos);
+        baseD= findViewById(R.id.base);
+        CBD= findViewById(R.id.cbd);
+
+        if(CBD.getText().toString() == "0"){
+            ckbxLector.setChecked(false);
+        }else{
+            ckbxLector.setChecked(true);
+        }
 
         SharedPreferences preferences = getSharedPreferences("dato", Context.MODE_PRIVATE);
         direccion.setText(preferences.getString("direcciones",""));
         conteo.setText(preferences.getString("conteo",""));
+        manSerie.setText(preferences.getString("serie",""));
+        ubi.setText(preferences.getString("ubicacion",""));
+        rest.setText(preferences.getString("rest",""));
+        restSel.setText(preferences.getString("rest2",""));
+        baseD.setText(preferences.getString("base",""));
+        CBD.setText(preferences.getString("cbd",""));
+
+        //ckbxLector.setChecked(true);
 
         direc = direccion.getText().toString();
         nroConteoGoblal = conteo.getText().toString();
+        serieGoblal = manSerie.getText().toString();
+        ubicacionGoblal = ubi.getText().toString();
+        if(restGlobal.equals("")){
+            restGlobal = "1";
+        }else{
+            restGlobal = rest.getText().toString();
+        }
+
+        if(CBD.equals("1")){
+            ckbxLector.setChecked(true);
+        }else{
+            ckbxLector.setChecked(false);
+        }
 
         //statusBar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -64,7 +115,8 @@ public class Configuracion extends AppCompatActivity {
                                 DbHelper dbHelper = new DbHelper(Configuracion.this);
                                 SQLiteDatabase db =  dbHelper.getWritableDatabase();
                                 if(db != null){
-                                    Toast.makeText(Configuracion.this, "se ha completado la creacion  de la BASE DE  DATOS", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Configuracion.this, "", Toast.LENGTH_LONG).show();
+                                    baseD.setText("1");
                                 }else{
                                     Toast.makeText(Configuracion.this, "ERROR", Toast.LENGTH_LONG).show();
 
@@ -79,7 +131,17 @@ public class Configuracion extends AppCompatActivity {
                 }).show();
             }
         });
+
+        if(baseD.getText().toString().equals("1")){
+            btnBaseDatos.setVisibility(View.INVISIBLE);
+        }else  if(baseD.getText().toString().equals("0")){
+            btnBaseDatos.setVisibility(View.VISIBLE);
+        }else{
+            Toast.makeText(Configuracion.this,"....", Toast.LENGTH_LONG).show();
+        }
     }
+
+
 
     public void guardar (View view){
         SharedPreferences preferecias =  getSharedPreferences("dato",Context.MODE_PRIVATE);
@@ -87,11 +149,14 @@ public class Configuracion extends AppCompatActivity {
 
         Obj_editor.putString("direcciones", direccion.getText().toString());
         Obj_editor.putString("conteo", conteo.getText().toString());
-
-
+        Obj_editor.putString("serie", manSerie.getText().toString());
+        Obj_editor.putString("ubicacion", ubi.getText().toString());
+        Obj_editor.putString("rest", rest.getText().toString());
+        Obj_editor.putString("rest2", restSel.getText().toString());
+        Obj_editor.putString("base", baseD.getText().toString());
+        Obj_editor.putString("cbd", CBD.getText().toString());
 
         Obj_editor.commit();
-
 
         Intent siguiente = new Intent(Configuracion.this, LoginActivity.class);
 
@@ -99,10 +164,49 @@ public class Configuracion extends AppCompatActivity {
         siguiente.putExtra("direcciones", direccion.getText().toString());
         siguiente.putExtra("conteo", conteo.getText().toString());
 
-
-
         startActivity(siguiente);
 
+        DbHelper dbHelper = new DbHelper(Configuracion.this);
+        SQLiteDatabase db =  dbHelper.getWritableDatabase();
+        if(db != null){
+            Toast.makeText(Configuracion.this, "", Toast.LENGTH_LONG).show();
+            baseD.setText("1");
+        }else{
+            Toast.makeText(Configuracion.this, "", Toast.LENGTH_LONG).show();
+
+        }
+
+        if(rest == null){
+            Toast.makeText(Configuracion.this,"no se completó la configuración REST, se tomará el default", Toast.LENGTH_LONG).show();
+        }else{
+            restGlobal = rest.getText().toString();
+        }
+
+        if (ckbxCodItem.isChecked()==false){
+            checkGlobal = false;
+            checkGlobalLector = false;
+        }  else if (ckbxCodItem.isChecked()==true){
+            checkGlobal = true;
+            checkGlobalLector = true;
+        }else{
+            Toast.makeText(Configuracion.this,"error", Toast.LENGTH_LONG).show();
+        }
+        if (ckbxLector.isChecked()==true){
+            CBD.setText("1");
+        }else{
+            CBD.setText("0");
+        }
+
+        if (CBD.getText().toString().equals("0")){
+            checkGlobalLector = false;
+            //   Toast.makeText(Configuracion.this,"0", Toast.LENGTH_LONG).show();
+        } else if  (CBD.getText().toString().equals("1")){
+            checkGlobalLector = true;
+            //   Toast.makeText(Configuracion.this,"1", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(Configuracion.this,"..", Toast.LENGTH_LONG).show();
+        }
 
     }
+
 }

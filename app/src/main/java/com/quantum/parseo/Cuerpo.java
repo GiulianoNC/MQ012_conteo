@@ -21,6 +21,12 @@ public class Cuerpo {
     @SerializedName("Numero_Serie")
     @Expose
     private String nroSerie;
+    @SerializedName("Cantidad_Fisica")
+    @Expose
+    private String cantidadFisica;
+    @SerializedName("Ubicación")
+    @Expose
+    private String ubicacion;
 
     //json body
     @SerializedName("Numero_Pallet")
@@ -28,9 +34,17 @@ public class Cuerpo {
     private String nroPallet;
     @SerializedName("Estado")
     @Expose
-    private String estado;
+    private boolean estado;
 
 
+
+    public String getCantidadFisica() {
+        return cantidadFisica;
+    }
+
+    public void setCantidadFisica(String cantidadFisica) {
+        this.cantidadFisica = cantidadFisica;
+    }
 
     public Cuerpo(String item) {
         this.item = item;
@@ -84,11 +98,11 @@ public class Cuerpo {
         this.nroPallet = nroPallet;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
@@ -100,7 +114,13 @@ public class Cuerpo {
         this.item = item;
         this.nroSerie = nroSerie;
     }
-
-
-
+    public Cuerpo(String username, String password, String nroConteo, String ubicacion ,String item, String nroSerie, String cantidadFisica) {
+        this.username = username;
+        this.password = password;
+        this.nroConteo = nroConteo;
+        this.ubicacion = ubicacion;
+        this.item = item;
+        this.nroSerie = nroSerie;
+        this.cantidadFisica = cantidadFisica;
+    }
 }

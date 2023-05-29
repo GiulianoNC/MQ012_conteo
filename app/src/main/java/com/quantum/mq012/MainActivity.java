@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         //video
         videoview  = (VideoView)findViewById(R.id.videoPresentacion);
-        String uriPath = "android.resource://com.quantum.mq012/"+R.raw.inicioisotipo;
+        String uriPath = "android.resource://com.quantum.mq012/"+R.raw.inicioisotipocc;
         Uri uri = Uri.parse(uriPath);
         videoview.setVideoURI(uri);
         videoview.requestFocus();

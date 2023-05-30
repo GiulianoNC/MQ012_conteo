@@ -47,32 +47,32 @@ public class DbContactos extends DbHelper{
     public long insertaContacto(String nombre, String item, String nro_serie, String ubicacion, String cantidad,String resultado){
 
         long id = 0;
+        long respuesta = 0;
         //vamos a usar el try catch para que no se detenga si hay un error,
         try{
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-
-            //agregar la funcion para insertar el registro
+        //agregar la funcion para insertar el registro
         ContentValues values = new ContentValues();
-        //inserto el nombre de la columna y despues el parametro
-            values.put("nombre", nombre);
-            values.put("item", item);
-            values.put("Numero_Serie", nro_serie);
-            values.put("ubicacion", ubicacion);
-            values.put("cantidad", cantidad);
-            values.put("resultado",resultado);
 
-            totalGoblal = totalGoblal +1;
+                //inserto el nombre de la columna y despues el parametro
+                values.put("nombre", nombre);
+                values.put("item", item);
+                values.put("Numero_Serie", nro_serie);
+                values.put("ubicacion", ubicacion);
+                values.put("cantidad", cantidad);
+                values.put("resultado",resultado);
+                //nos va a regresar el id insertado
+                id = db.insert(TABLE_CONTEO, null, values);
 
-            //nos va a regresar el id insertado
-         id = db.insert(TABLE_CONTEO, null, values);
         }catch (Exception ex){
             ex.toString();
         }
         return id;
     }
 
+    //para contar la cantidad de registros
     public int getRowCount() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CONTEO, null);
@@ -81,6 +81,7 @@ public class DbContactos extends DbHelper{
         cursor.close();
         return count;
     }
+
 
 
     public ArrayList<Contactos> mostrarContactos(){
@@ -112,16 +113,13 @@ public class DbContactos extends DbHelper{
 
             }while(cursorContactos.moveToNext());
          //   totalGoblal = totalGoblal +1;
-
         }
-
         cursorContactos.close();
         //Toast.makeText(context," es :"  + totalGoblal,Toast.LENGTH_SHORT).show();;
         return listaContactos;
-
     }
 
-    public ArrayList<Contactos> mostrarContactos2(){
+    public ArrayList<Contactos> enviarRegistros (){
 
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

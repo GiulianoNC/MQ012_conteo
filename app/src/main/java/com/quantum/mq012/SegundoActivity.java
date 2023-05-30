@@ -167,7 +167,7 @@ public class SegundoActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         DbContactos dbContactos = new DbContactos(SegundoActivity.this);
                         listaArrayContactos = new ArrayList<>();
-                        adapter = new ListaContactosAdapter(dbContactos.mostrarContactos2());
+                        adapter = new ListaContactosAdapter(dbContactos.enviarRegistros());
                         listaContactos.setAdapter(adapter);
                         mostrar();
                        /* progresBar.setMax(100);

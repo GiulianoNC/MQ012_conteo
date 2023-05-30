@@ -24,9 +24,7 @@ import com.quantum.entidades.Contactos;
 //en esta clase es para poder ver,editar,eliminar  lo seleccionado
 public class VerActivity extends AppCompatActivity {
 
-    TextView viewItem,viewNroSerie,viewResultado,qtm,titulo,codigo,codigo2,idShow,viewCantidad,fabEliminar;
-    // Button btnGuarda;
-    boolean correcto = false;
+    TextView viewItem,viewNroSerie,viewResultado,qtm,titulo,idShow,viewCantidad,fabEliminar;
     Contactos contacto;
     int  id = 0;
 
@@ -40,8 +38,6 @@ public class VerActivity extends AppCompatActivity {
         idShow = findViewById(R.id.idMostrar);
         viewCantidad = findViewById(R.id.cantidadInsertada);
 
-
-
         //btnGuarda = findViewById(R.id.btnGuarda);
         fabEliminar = findViewById(R.id.FabEliminar);
         viewResultado = findViewById(R.id.resultado);
@@ -51,11 +47,12 @@ public class VerActivity extends AppCompatActivity {
         qtm = findViewById(R.id.qtm3);
         qtm.setText("QTM -  CONTEO   " + "\n" + "      CICLICO" );
 
+        viewCantidad .requestFocus();
+
         //mostrar el numero de conteo
         if(nroConteoGoblal != null){
             titulo.setText( nroConteoGoblal);
         }
-
 
         //statusBar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -83,14 +80,10 @@ public class VerActivity extends AppCompatActivity {
             viewCantidad.setText(contacto.getCantidad());
             viewResultado.setText(contacto.getResultado());
 
-
-
             viewItem.setInputType(InputType.TYPE_NULL);
             viewNroSerie.setInputType(InputType.TYPE_NULL);
             viewResultado.setInputType(InputType.TYPE_NULL);
             viewCantidad.setInputType(InputType.TYPE_NULL);
-
-
 
         }else{
             Toast.makeText(VerActivity.this,"no hay datos", Toast.LENGTH_LONG).show();

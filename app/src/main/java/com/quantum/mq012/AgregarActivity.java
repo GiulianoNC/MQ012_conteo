@@ -67,6 +67,7 @@ public class AgregarActivity extends AppCompatActivity {
             cantidad.setVisibility(View.INVISIBLE);
             cantiT.setVisibility(View.INVISIBLE);
             cantidad.setText("1");
+
         }
         //statusBar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

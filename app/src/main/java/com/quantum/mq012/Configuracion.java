@@ -25,9 +25,9 @@ import com.quantum.conectividad.Conexion;
 import com.quantum.db.DbHelper;
 import com.quantum.parseo.Cuerpo;
 
-public class Configuracion extends AppCompatActivity {
+ public class Configuracion extends AppCompatActivity {
 
-    private TextView direccion,qtm, conteo, ubi, manSerie, rest, restSel,baseD,CBD;
+  /*private TextView direccion,qtm, conteo, ubi, manSerie, rest, restSel,baseD,CBD;
     public static String direc = null;
     public static String  nroConteoGoblal = null;
     public static String  ubicacionGoblal = null;
@@ -43,22 +43,20 @@ public class Configuracion extends AppCompatActivity {
 
     FloatingActionButton btnBaseDatos;
 
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracion);
 
-        direccion= findViewById(R.id.direccion);
+       direccion= findViewById(R.id.direccion);
         conteo= findViewById(R.id.nroConteo);
 
         ubi= findViewById(R.id.ubicacion);
-        manSerie= findViewById(R.id.serie);
         rest= findViewById(R.id.servicioRest);
         restSel= findViewById(R.id.restSeleccionado);
 
         ckbxCodItem = findViewById(R.id.checkBoxCodItem);
         ckbxLector = findViewById(R.id.checkBoxLector);
-        btnBaseDatos= findViewById(R.id.btnBaseDatos);
         baseD= findViewById(R.id.base);
         CBD= findViewById(R.id.cbd);
 
@@ -89,12 +87,8 @@ public class Configuracion extends AppCompatActivity {
         }else{
             restGlobal = rest.getText().toString();
         }
+        ckbxCodItem.setChecked(true);
 
-        if(CBD.equals("1")){
-            ckbxLector.setChecked(true);
-        }else{
-            ckbxLector.setChecked(false);
-        }
 
         //statusBar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -141,10 +135,8 @@ public class Configuracion extends AppCompatActivity {
         }
     }
 
-
-
-    public void guardar (View view){
-        SharedPreferences preferecias =  getSharedPreferences("dato",Context.MODE_PRIVATE);
+      public void guardar (View view){
+      SharedPreferences preferecias =  getSharedPreferences("dato",Context.MODE_PRIVATE);
         SharedPreferences.Editor Obj_editor = preferecias.edit();
 
         Obj_editor.putString("direcciones", direccion.getText().toString());
@@ -207,6 +199,6 @@ public class Configuracion extends AppCompatActivity {
             Toast.makeText(Configuracion.this,"..", Toast.LENGTH_LONG).show();
         }
 
-    }
+    }*/
 
 }

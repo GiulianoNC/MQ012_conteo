@@ -1,9 +1,12 @@
 package com.quantum.db;
 
-import static com.quantum.mq012.Configuracion.direc;
+/*import static com.quantum.mq012.Configuracion.direc;
 import static com.quantum.mq012.Configuracion.nroConteoGoblal;
-import static com.quantum.mq012.Configuracion.restGlobal;
+import static com.quantum.mq012.Configuracion.restGlobal;*/
 import static com.quantum.mq012.LoginActivity.contraseñaGlobal;
+import static com.quantum.mq012.LoginActivity.direc;
+import static com.quantum.mq012.LoginActivity.nroConteoGoblal2;
+import static com.quantum.mq012.LoginActivity.restGlobal;
 import static com.quantum.mq012.LoginActivity.usuarioGlobal;
 import static com.quantum.mq012.SegundoActivity.progresBar;
 
@@ -167,7 +170,7 @@ public class DbContactos extends DbHelper{
 
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -176,7 +179,6 @@ public class DbContactos extends DbHelper{
                             int statusCode = response.code();
 
                             if (statusCode <= 200) {
-
 
                                 Cuerpo cuerpo = response.body();
                                 boolean prueba = cuerpo.getEstado();
@@ -192,16 +194,15 @@ public class DbContactos extends DbHelper{
                                     Toast.makeText(context, " Completado", Toast.LENGTH_SHORT).show();
                                     mostrarContactos();
                                 }
-                            }
-                            if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
-                                ;
+                            }else{
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
+
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Cuerpo> call, Throwable t) {
-                            Toast.makeText(context, "No se conectó", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "No se conectó, revisar la configuración | servidor", Toast.LENGTH_SHORT).show();
                             ;
                         }
                     });
@@ -220,7 +221,7 @@ public class DbContactos extends DbHelper{
 
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos2(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -250,7 +251,7 @@ public class DbContactos extends DbHelper{
 
                             }
                             if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
                                 ;
                             }
 
@@ -279,7 +280,7 @@ public class DbContactos extends DbHelper{
 
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos3(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -308,7 +309,7 @@ public class DbContactos extends DbHelper{
                                 }
 
                             } else if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -335,7 +336,7 @@ public class DbContactos extends DbHelper{
                             .build();
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos4(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -365,7 +366,7 @@ public class DbContactos extends DbHelper{
 
                             }
                             if (statusCode != 200) {
-                                Toast.makeText(context, " error en la conexion", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -394,7 +395,7 @@ public class DbContactos extends DbHelper{
 
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos5(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -424,7 +425,7 @@ public class DbContactos extends DbHelper{
 
                             }
                             if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -452,7 +453,7 @@ public class DbContactos extends DbHelper{
                             .build();
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos6(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -482,7 +483,7 @@ public class DbContactos extends DbHelper{
 
                             }
                             if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -510,7 +511,7 @@ public class DbContactos extends DbHelper{
                             .build();
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos7(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -540,7 +541,7 @@ public class DbContactos extends DbHelper{
 
                             }
                             if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -568,7 +569,7 @@ public class DbContactos extends DbHelper{
                             .build();
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal, ubicacionString, ItemString, SerieString, CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal, nroConteoGoblal2 , ubicacionString, ItemString, SerieString, CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos8(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -598,7 +599,7 @@ public class DbContactos extends DbHelper{
 
                             }
                             if (statusCode != 200) {
-                                Toast.makeText(context, " error ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -626,7 +627,7 @@ public class DbContactos extends DbHelper{
                             .build();
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal,  nroConteoGoblal, ubicacionString, ItemString,SerieString,CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal,  nroConteoGoblal2 , ubicacionString, ItemString,SerieString,CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos9(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -654,7 +655,7 @@ public class DbContactos extends DbHelper{
                                 }
 
                             }if (statusCode != 200){
-                                Toast.makeText(context," error"  ,Toast.LENGTH_SHORT).show();;
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
                             }
 
                         }
@@ -680,7 +681,7 @@ public class DbContactos extends DbHelper{
                             .build();
                     Conexion conexion = retrofit.create(Conexion.class);
 
-                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal,  nroConteoGoblal, ubicacionString, ItemString,SerieString,CantidadString);
+                    Cuerpo login = new Cuerpo(usuarioGlobal, contraseñaGlobal,  nroConteoGoblal2 , ubicacionString, ItemString,SerieString,CantidadString);
 
                     Call<Cuerpo> call = conexion.getDatos10(login);
                     call.enqueue(new Callback<Cuerpo>() {
@@ -708,7 +709,7 @@ public class DbContactos extends DbHelper{
                                 }
 
                             }if (statusCode != 200){
-                                Toast.makeText(context," error "  ,Toast.LENGTH_SHORT).show();;
+                                Toast.makeText(context, " Error, revisar la configuración ", Toast.LENGTH_SHORT).show();
                             }
 
                         }

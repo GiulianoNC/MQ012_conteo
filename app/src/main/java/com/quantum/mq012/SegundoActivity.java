@@ -1,8 +1,9 @@
 package com.quantum.mq012;
 
 import static com.quantum.db.DbContactos.totalGoblal;
-import static com.quantum.mq012.Configuracion.nroConteoGoblal;
-import static com.quantum.mq012.Configuracion.restGlobal;
+/*import static com.quantum.mq012.Configuracion.nroConteoGoblal;
+import static com.quantum.mq012.Configuracion.restGlobal;*/
+import static com.quantum.mq012.LoginActivity.nroConteoGoblal2;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,9 +91,11 @@ public class SegundoActivity extends AppCompatActivity {
         }*/
         progresBar.setVisibility(View.INVISIBLE);
 
+        String conteo = getIntent().getStringExtra("conteo");
+        titulo.setText(conteo);
         //mostrar el numero de conteo
-        if(nroConteoGoblal != null){
-            titulo.setText( nroConteoGoblal);
+        if(nroConteoGoblal2 != null){
+            titulo.setText( nroConteoGoblal2);
 
             mostrar();
             cantidad();
@@ -140,6 +143,7 @@ public class SegundoActivity extends AppCompatActivity {
         cantidad();
         mostrar();
         Toast.makeText(SegundoActivity.this,"Actualizado", Toast.LENGTH_LONG).show();
+        titulo.setText( nroConteoGoblal2);
     }
 
     //metodo para llamado de la base de datos

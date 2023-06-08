@@ -1,9 +1,14 @@
 package com.quantum.mq012;
 
-import static com.quantum.mq012.Configuracion.checkGlobal;
+/*import static com.quantum.mq012.Configuracion.checkGlobal;
 import static com.quantum.mq012.Configuracion.checkGlobalLector;
 import static com.quantum.mq012.Configuracion.nroConteoGoblal;
-import static com.quantum.mq012.Configuracion.ubicacionGoblal;
+import static com.quantum.mq012.Configuracion.ubicacionGoblal;*/
+import static com.quantum.mq012.LoginActivity.checkGlobal;
+import static com.quantum.mq012.LoginActivity.checkGlobalLector;
+import static com.quantum.mq012.LoginActivity.handHeldGlobal;
+import static com.quantum.mq012.LoginActivity.nroConteoGoblal2;
+import static com.quantum.mq012.LoginActivity.ubicacionGoblal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +18,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +26,17 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.quantum.db.DbContactos;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class AgregarActivity extends AppCompatActivity {
 
     TextView item, serie,qtm,titulo,idMostrar,cantidad,ubicacion,cantiT, qrInfo,colectadoQ,colectado;
     int  id = 0;
     Button qr, ok;
+    CheckBox formatoBox,handBox;
+    boolean formato,hand;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +56,18 @@ public class AgregarActivity extends AppCompatActivity {
         colectado = findViewById(R.id.colectado2);
         qtm = findViewById(R.id.qtm4);
         qtm.setText("QTM -  CONTEO   " + "\n" + "      CICLICO" );
+        formatoBox = findViewById(R.id.formato);
+        handBox = findViewById(R.id.handCheck);
 
 
+        if(formatoBox.isChecked() == true){
+             formato = true;
+            Toast.makeText(AgregarActivity.this,"debe ser al menos 24  caracteres a la hora de cargar el pallet ", Toast.LENGTH_LONG).show();
+        }else{
+            formato = false;
+        }
+
+        //obsoleto
         if(checkGlobalLector == false){
             colectadoQ.setVisibility(View.INVISIBLE);
             ok.setVisibility(View.INVISIBLE);
@@ -57,8 +79,8 @@ public class AgregarActivity extends AppCompatActivity {
         }
 
         //mostrar el numero de conteo
-        if(nroConteoGoblal != null){
-            titulo.setText( nroConteoGoblal);
+        if(nroConteoGoblal2 != null){
+            titulo.setText( nroConteoGoblal2);
         }
         if(ubicacionGoblal != null){
             ubicacion.setText( ubicacionGoblal);
@@ -67,13 +89,35 @@ public class AgregarActivity extends AppCompatActivity {
             cantidad.setVisibility(View.INVISIBLE);
             cantiT.setVisibility(View.INVISIBLE);
             cantidad.setText("1");
-
+        }
+        if(handHeldGlobal){
+            Toast.makeText(this, "activado handheld", Toast.LENGTH_LONG).show();
         }
         //statusBar
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         getWindow().setStatusBarColor(Color.rgb(102,45,145));  //Define color
 
+        serie.isFocused();
 
+        //para agregar instantaneo
+        Timer timer2 = new Timer();
+        timer2.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                //handheld
+                if(handHeldGlobal){
+                    agregar2();
+                }else{
+                    hand = false;
+                };
+                //formato
+                if(formatoBox.isChecked() == true){
+                    formato = true;
+                }else{
+                    formato = false;
+                }
+            }
+        }, 0, 3000);
     }
 
 
@@ -123,7 +167,7 @@ public class AgregarActivity extends AppCompatActivity {
                     qrInfo.setText("");
                 }else{
                     qrInfo.setText(result.getContents());
-                    if(checkGlobalLector == false){
+                    if(checkGlobalLector == false || formato == false){
 
                         if(serie.isFocused() == true){
                             serie.setText(result.getContents());
@@ -168,6 +212,7 @@ public class AgregarActivity extends AppCompatActivity {
             String strNew =  palletString.replace(" ", "");
 
             DbContactos dbContactos = new DbContactos(AgregarActivity.this);
+
             long id  =dbContactos.insertaContacto("nombre",item.getText().toString(),  strNew, ubicacion.getText().toString(),cantidad.getText().toString(),"  P  ");
 
             }else{
@@ -176,31 +221,37 @@ public class AgregarActivity extends AppCompatActivity {
             limpiar();
         }
 
+        //para handheld
     public void agregar2(){
 
-        if ( id >0 && item.length() == 0  && serie.length() == 0 && ubicacion.length() == 0  ){
-            Toast.makeText(AgregarActivity.this, "ERROR AL GUARDAR REGISTRO", Toast.LENGTH_SHORT).show();
+        if(serie.length() != 0){
+            if ( id >0 && item.length() == 0  && serie.length() == 0 && ubicacion.length() == 0  ){
 
-        }else if(id >0 && item.length() != 0  || serie.length() != 0 || ubicacion.length() != 0  ){
-            String palletString = serie.getText().toString();
-            String strNew =  palletString.replace(" ", "");
+                Toast.makeText(AgregarActivity.this, "ERROR AL GUARDAR REGISTRO", Toast.LENGTH_SHORT).show();
 
-            DbContactos dbContactos = new DbContactos(AgregarActivity.this);
-            long id  =dbContactos.insertaContacto("nombre",item.getText().toString(),  strNew, ubicacion.getText().toString(),cantidad.getText().toString(),"  P  ");
-
-            Toast.makeText(this, "Registro Guardado", Toast.LENGTH_LONG).show();
-
+            }else if(id >0 && item.length() != 0  || serie.length() != 0 || ubicacion.length() != 0  ){
+                String palletString = serie.getText().toString();
+                String strNew =  palletString.replace(" ", "");
+                colectado.setText(strNew);
+                DbContactos dbContactos = new DbContactos(AgregarActivity.this);
+                long id  =dbContactos.insertaContacto("nombre",item.getText().toString(),  strNew, ubicacion.getText().toString(),cantidad.getText().toString(),"  P  ");
+               // Toast.makeText(this, "Registro Guardado", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(AgregarActivity.this, "cargue al menos un campo", Toast.LENGTH_SHORT).show();
+            }
+            limpiar();
         }else{
-            Toast.makeText(AgregarActivity.this, "cargue al menos un campo", Toast.LENGTH_SHORT).show();
+            colectado.setText("");
         }
-        limpiar();
+
     }
     //limpia los textViews de item y serie
     private void limpiar (){
         serie.setText("");
         item.setText("");
-        cantidad.setText("");
+        //cantidad.setText("");
         colectadoQ.setText("");
+      //  colectado.setText("");
 
     }
     //para volver

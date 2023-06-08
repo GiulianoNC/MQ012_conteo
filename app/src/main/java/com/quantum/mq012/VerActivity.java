@@ -1,7 +1,8 @@
 package com.quantum.mq012;
 
 import static com.quantum.db.DbContactos.totalGoblal;
-import static com.quantum.mq012.Configuracion.nroConteoGoblal;
+import static com.quantum.mq012.LoginActivity.nroConteoGoblal2;
+//import static com.quantum.mq012.Configuracion.nroConteoGoblal;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,8 +51,8 @@ public class VerActivity extends AppCompatActivity {
         viewCantidad .requestFocus();
 
         //mostrar el numero de conteo
-        if(nroConteoGoblal != null){
-            titulo.setText( nroConteoGoblal);
+        if(nroConteoGoblal2 != null){
+            titulo.setText( nroConteoGoblal2);
         }
 
         //statusBar

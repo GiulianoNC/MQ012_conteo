@@ -4,9 +4,12 @@ import static com.quantum.db.DbContactos.totalGoblal;
 /*import static com.quantum.mq012.Configuracion.nroConteoGoblal;
 import static com.quantum.mq012.Configuracion.restGlobal;*/
 import static com.quantum.mq012.LoginActivity.nroConteoGoblal2;
+import static com.quantum.mq012.LoginActivity.visible;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +21,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -125,12 +130,45 @@ public class SegundoActivity extends AppCompatActivity {
 
         obtener();
 
-
+        //Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
     public void obtener(){
         pathDatabase = getDatabasePath("conteo2.db").getAbsolutePath();
         dataBase.setText(pathDatabase);
 
+    }
+
+    //menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu2, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //acciones de menu
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.action_sesion:
+
+                Intent siguiente = new Intent(SegundoActivity.this, LoginActivity.class);
+                startActivity(siguiente);
+
+                visible = "1";
+                break;
+
+            case R.id.action_configuracion:
+                Intent siguiente2 = new Intent(SegundoActivity.this, LoginActivity.class);
+                visible = "2";
+                startActivity(siguiente2);
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void cantidad(){

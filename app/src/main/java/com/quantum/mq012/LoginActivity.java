@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
     public static boolean  checkGlobalLector = false;
     public static boolean  handHeldGlobal = false;
     public static String  nroConteoGoblal2 = null;
+    public static String  visible = null;
 
     public static String restGlobal = "";
 
@@ -166,7 +167,16 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             logueo.setVisibility(View.INVISIBLE);
         }
+        if(visible == "1"){
 
+            logueo.setVisibility(View.VISIBLE);
+            config.setVisibility(View.INVISIBLE);
+
+         }else{
+            logueo.setVisibility(View.INVISIBLE);
+            config.setVisibility(View.VISIBLE);
+
+        }
     }
     //globales
     public void global(){
@@ -174,7 +184,6 @@ public class LoginActivity extends AppCompatActivity {
         contraseñaGlobal = contraseña.getText().toString();
         nroConteoGoblal2 =  conteoL.getText().toString();
         ubicacionGoblal = ubiL.getText().toString();
-
 
         String direcion = urls.getText().toString();
         direc =direcion;
@@ -271,7 +280,6 @@ public class LoginActivity extends AppCompatActivity {
                 nroConteoGoblal2 =  conteoL.getText().toString();
                 ubicacionGoblal = ubiL.getText().toString();
                 direc = direccion;
-                Toast.makeText(LoginActivity.this, "" + nroConteoGoblal2 , Toast.LENGTH_SHORT).show();
 
 
                 if(restGlobal.equals("1") || restGlobal.equals("")){

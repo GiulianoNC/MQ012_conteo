@@ -39,16 +39,16 @@
         android:id="@+id/colectado2"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button4"
+        android:layout_below="@+id/cant"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/ic_borde4"
         android:gravity="center"
-        android:hint="Pallet escaneado"
+        android:hint="Último escaneado"
         android:inputType="textPersonName"
         android:textColor="@color/textColor"
         android:textColorHint="@color/colorQuantum" />
@@ -64,9 +64,9 @@
         android:id="@+id/button5"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/cant"
+        android:layout_below="@+id/colectado2"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/ic_borde2"
         android:onClick="Salir"
@@ -153,7 +153,7 @@
                 android:foregroundGravity="center"
                 android:gravity="center"
                 android:textSize="1sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
         </TableRow>
 
     </TableLayout>
@@ -282,10 +282,10 @@
         android:id="@+id/button4"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/cant"
+        android:layout_below="@+id/colectado2"
         android:layout_alignParentStart="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/custom_button3"
         android:onClick="agregar"
         android:text="Colectar"

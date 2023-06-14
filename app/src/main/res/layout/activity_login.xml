@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/backgroundImg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/handText"
@@ -29,45 +36,41 @@
         style="@style/srcQuantumLogo"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Switch
         android:id="@+id/btnToggleDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/roboto"
         android:text="Dia/Noche"
-        android:textColor="@color/colorQuantum" />
+        android:textColor="@color/colorQuantum"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintWidth_percent="0.4" />
 
     <ImageView
         android:id="@+id/imageView9"
         style="@style/srcQuantumBackground"
         android:layout_width="112dp"
         android:layout_height="124dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="17dp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/mon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:visibility="invisible" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/prueba2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:visibility="invisible" />
+        android:layout_height="wrap_content" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -94,16 +97,15 @@
 
     <TableLayout
         android:id="@+id/logueo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView3"
-        android:layout_below="@+id/btnToggleDark"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="30dp"
-        android:visibility="visible">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToggleDark"
+        app:layout_constraintWidth_percent="0.9">
 
         <TableRow
             android:layout_width="match_parent"
@@ -111,10 +113,10 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentEnd="false"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
@@ -127,14 +129,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/Usuario"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentEnd="false"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/ic_borde"
                 android:fontFamily="@font/roboto"
@@ -147,13 +149,12 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/contraseñaTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:text="CONTRASEÑA"
@@ -164,7 +165,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/con"
@@ -178,7 +179,6 @@
                     android:id="@+id/contras"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="5dp"
                     android:background="@drawable/ic_borde"
                     android:gravity="center"
                     android:inputType="textPassword"
@@ -191,35 +191,30 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/custom_button"
-                android:fontFamily="@font/roboto"
-                android:gravity="center"
                 android:onClick="ingresar"
-                android:text="iNGRESAR"
-                android:textSize="12sp" />
+                android:text="INGRESAR" />
         </TableRow>
     </TableLayout>
 
     <TableLayout
         android:id="@+id/configuracion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="24dp"
-        android:visibility="visible">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToggleDark"
+        app:layout_constraintWidth_percent="0.9">
 
         <TableRow
             android:layout_width="match_parent"
@@ -229,7 +224,7 @@
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/direccion"
+                android:layout_above="@+id/direccion2"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="10dp"
@@ -271,7 +266,7 @@
 
             <TextView
                 android:id="@+id/textView21"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/servicioRest"
                 android:layout_alignParentStart="true"
@@ -283,7 +278,7 @@
 
             <TextView
                 android:id="@+id/textView16"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/nroConteo"
                 android:layout_alignParentEnd="true"
@@ -301,11 +296,10 @@
 
             <EditText
                 android:id="@+id/servicioRest2"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_above="@+id/textView9"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="30dp"
                 android:background="@drawable/ic_borde"
                 android:ems="10"
                 android:gravity="center"
@@ -319,7 +313,7 @@
 
             <EditText
                 android:id="@+id/nroConteo2"
-                android:layout_width="92dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_above="@+id/textView9"
                 android:layout_alignParentEnd="true"
@@ -385,10 +379,11 @@
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/checkBoxCodItem"
                 android:layout_alignParentStart="true"
+                android:layout_marginEnd="2dp"
                 android:gravity="center"
                 android:text="Manejo de Serie"
                 android:textColor="@color/colorQuantum"
@@ -396,10 +391,11 @@
 
             <TextView
                 android:id="@+id/textView19"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/checkBoxLector"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="2dp"
                 android:gravity="center"
                 android:text="Formato"
                 android:textColor="@color/colorQuantum"
@@ -407,10 +403,11 @@
 
             <TextView
                 android:id="@+id/textView22"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/checkBoxCodItem"
                 android:layout_alignParentStart="true"
+                android:layout_marginEnd="2dp"
                 android:gravity="center"
                 android:text="Handheld"
                 android:textColor="@color/colorQuantum"
@@ -424,10 +421,11 @@
 
             <CheckBox
                 android:id="@+id/checkBoxCodItem2"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_above="@+id/button"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="2dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/ic_borde4"
                 android:button="@drawable/image_checkbox"
@@ -438,11 +436,11 @@
 
             <CheckBox
                 android:id="@+id/checkBoxLector3"
-                android:layout_width="77dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_above="@+id/button"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="40dp"
+                android:layout_marginEnd="2dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/ic_borde4"
                 android:button="@drawable/image_checkbox"
@@ -453,8 +451,9 @@
 
             <CheckBox
                 android:id="@+id/handheld"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
                 android:background="@drawable/ic_borde4"
                 android:button="@drawable/image_checkbox" />
 
@@ -472,7 +471,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="5dp"
-                android:layout_span="2"
+                android:layout_span="3"
                 android:background="@drawable/custom_button"
                 android:onClick="configuracion"
                 android:text="guardar"
@@ -489,8 +488,6 @@
         android:id="@+id/informeConexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
         android:text="Conexión"
@@ -501,8 +498,6 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="41dp"
         android:fontFamily="@font/roboto"
         android:text="Versión 2.0"
@@ -511,4 +506,4 @@
         android:visibility="invisible" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -212,6 +212,7 @@ public class AgregarActivity extends AppCompatActivity {
             String strNew =  palletString.replace(" ", "");
 
             DbContactos dbContactos = new DbContactos(AgregarActivity.this);
+            colectado.setText(palletString);
 
             long id  =dbContactos.insertaContacto("nombre",item.getText().toString(),  strNew, ubicacion.getText().toString(),cantidad.getText().toString(),"  P  ");
 

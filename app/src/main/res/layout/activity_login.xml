@@ -97,15 +97,15 @@
 
     <TableLayout
         android:id="@+id/logueo"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="0dp"
-        android:layout_marginTop="40dp"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnToggleDark"
-        app:layout_constraintWidth_percent="0.9">
+        app:layout_constraintWidth_percent="0.98">
 
         <TableRow
             android:layout_width="match_parent"
@@ -165,7 +165,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/con"
@@ -173,7 +174,7 @@
                 android:layout_height="50dp"
                 android:gravity="center"
                 app:passwordToggleDrawable="@drawable/custom_password_eye"
-                app:passwordToggleEnabled="false">
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/contras"
@@ -182,6 +183,7 @@
                     android:background="@drawable/ic_borde"
                     android:gravity="center"
                     android:inputType="textPassword"
+                    android:paddingStart="40dp"
                     android:textColor="@color/textColor"
                     android:textColorHint="#706B6B"
                     android:textCursorDrawable="@color/divider"
@@ -206,10 +208,11 @@
 
     <TableLayout
         android:id="@+id/configuracion"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
-        android:visibility="visible"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
@@ -241,7 +244,7 @@
 
             <EditText
                 android:id="@+id/direccion2"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_above="@+id/textView14"
                 android:layout_alignParentStart="true"
@@ -379,11 +382,8 @@
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/checkBoxCodItem"
-                android:layout_alignParentStart="true"
-                android:layout_marginEnd="2dp"
                 android:gravity="center"
                 android:text="Manejo de Serie"
                 android:textColor="@color/colorQuantum"
@@ -393,9 +393,7 @@
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/checkBoxLector"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="10dp"
                 android:gravity="center"
                 android:text="Formato"
                 android:textColor="@color/colorQuantum"
@@ -405,9 +403,6 @@
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/checkBoxCodItem"
-                android:layout_alignParentStart="true"
-                android:layout_marginEnd="2dp"
                 android:gravity="center"
                 android:text="Handheld"
                 android:textColor="@color/colorQuantum"
@@ -423,10 +418,9 @@
                 android:id="@+id/checkBoxCodItem2"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_above="@+id/button"
-                android:layout_alignParentStart="true"
-                android:layout_marginEnd="2dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/ic_borde4"
                 android:button="@drawable/image_checkbox"
                 android:foregroundGravity="center"
@@ -438,9 +432,7 @@
                 android:id="@+id/checkBoxLector3"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_above="@+id/button"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/ic_borde4"
                 android:button="@drawable/image_checkbox"
@@ -452,8 +444,9 @@
             <CheckBox
                 android:id="@+id/handheld"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/ic_borde4"
                 android:button="@drawable/image_checkbox" />
 

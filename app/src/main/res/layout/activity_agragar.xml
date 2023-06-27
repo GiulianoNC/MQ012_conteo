@@ -253,7 +253,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tablaConteo"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_toStartOf="@+id/btOK"
         android:background="@drawable/ic_borde4"
@@ -306,9 +306,12 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="-15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@+id/button4"
         android:background="@drawable/ic_baseline_qr_code_scanner_24"
+        android:foregroundGravity="clip_horizontal"
+        android:gravity="center_horizontal"
         android:onClick="scan" />
 
     <Button
@@ -335,5 +338,11 @@
         android:onClick="ok"
         android:text="ok"
         android:visibility="invisible" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
 </RelativeLayout>

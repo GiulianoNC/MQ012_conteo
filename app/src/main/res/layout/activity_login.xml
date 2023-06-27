@@ -40,18 +40,42 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+    <ImageView
+        android:id="@+id/sun"
+        style="@style/SolLuna"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnToggleDark"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintWidth_percent="0.05"
+        app:srcCompat="@drawable/sun" />
+
+    <ImageView
+        android:id="@+id/moon"
+        style="@style/SolLuna"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toEndOf="@+id/btnToggleDark"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintWidth_percent="0.05"
+        app:srcCompat="@drawable/moon" />
+
     <Switch
         android:id="@+id/btnToggleDark"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/roboto"
-        android:text="Dia/Noche"
         android:textColor="@color/colorQuantum"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintWidth_percent="0.4" />
+        app:layout_constraintWidth_percent="0.15" />
+
 
     <ImageView
         android:id="@+id/imageView9"

@@ -50,4 +50,6 @@
     </style>
     //Flecha de actualizar a Rosa
     <style name="flechaRosa"><item name="android:backgroundTint">#d30958</item></style>
+    //Sol y Luna
+    <style name="SolLuna"><item name="android:tint">#FFFFFFFF</item></style>
 </resources>

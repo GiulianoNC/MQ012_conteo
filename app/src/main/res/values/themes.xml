@@ -44,4 +44,6 @@
     <style name="srcQuantumLogo"><item name="android:background">@drawable/lg_quantum_cabezal</item></style>
     //Flecha de actualizar a Rosa
     <style name="flechaRosa"></style>
+    //Sol y Luna
+    <style name="SolLuna"><item name="android:tint">#662D91</item></style>
 </resources>
